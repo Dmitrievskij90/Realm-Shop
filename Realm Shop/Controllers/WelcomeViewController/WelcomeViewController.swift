@@ -16,5 +16,9 @@ class WelcomeViewController: UIViewController {
     }
 
     @IBAction private func getStartedButtonPressed(_ sender: UIButton) {
+        let viewController = CategoryViewController.instantiate()
+        viewController.modalTransitionStyle = .coverVertical
+        viewController.modalPresentationStyle = .fullScreen
+        present(viewController, animated: true, completion: nil)
     }
 }
