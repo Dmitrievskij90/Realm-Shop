@@ -3,13 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		5C86F43C267DF4A800E8EEA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C86F43B267DF4A800E8EEA1 /* AppDelegate.swift */; };
 		5C86F43E267DF4A800E8EEA1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C86F43D267DF4A800E8EEA1 /* SceneDelegate.swift */; };
-		5C86F440267DF4A800E8EEA1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C86F43F267DF4A800E8EEA1 /* ViewController.swift */; };
+		5C86F440267DF4A800E8EEA1 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C86F43F267DF4A800E8EEA1 /* WelcomeViewController.swift */; };
 		5C86F443267DF4A800E8EEA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C86F441267DF4A800E8EEA1 /* Main.storyboard */; };
 		5C86F445267DF4A900E8EEA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C86F444267DF4A900E8EEA1 /* Assets.xcassets */; };
 		5C86F448267DF4A900E8EEA1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C86F446267DF4A900E8EEA1 /* LaunchScreen.storyboard */; };
@@ -20,7 +20,7 @@
 		5C86F438267DF4A800E8EEA1 /* Realm Shop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Realm Shop.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C86F43B267DF4A800E8EEA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C86F43D267DF4A800E8EEA1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5C86F43F267DF4A800E8EEA1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5C86F43F267DF4A800E8EEA1 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		5C86F442267DF4A800E8EEA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5C86F444267DF4A900E8EEA1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C86F447267DF4A900E8EEA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -65,13 +65,29 @@
 			children = (
 				5C86F43B267DF4A800E8EEA1 /* AppDelegate.swift */,
 				5C86F43D267DF4A800E8EEA1 /* SceneDelegate.swift */,
-				5C86F43F267DF4A800E8EEA1 /* ViewController.swift */,
-				5C86F441267DF4A800E8EEA1 /* Main.storyboard */,
+				5C86F45A267E087600E8EEA1 /* Controllers */,
 				5C86F444267DF4A900E8EEA1 /* Assets.xcassets */,
 				5C86F446267DF4A900E8EEA1 /* LaunchScreen.storyboard */,
 				5C86F449267DF4A900E8EEA1 /* Info.plist */,
 			);
 			path = "Realm Shop";
+			sourceTree = "<group>";
+		};
+		5C86F45A267E087600E8EEA1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5C86F45B267E08A500E8EEA1 /* WelcomeViewController */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		5C86F45B267E08A500E8EEA1 /* WelcomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5C86F43F267DF4A800E8EEA1 /* WelcomeViewController.swift */,
+				5C86F441267DF4A800E8EEA1 /* Main.storyboard */,
+			);
+			path = WelcomeViewController;
 			sourceTree = "<group>";
 		};
 		6AE58991EB0E029315320505 /* Pods */ = {
@@ -80,7 +96,6 @@
 				D4480455836B63A1071919CF /* Pods-Realm Shop.debug.xcconfig */,
 				F9959C738EEF2861D84F6C5A /* Pods-Realm Shop.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -225,7 +240,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C86F440267DF4A800E8EEA1 /* ViewController.swift in Sources */,
+				5C86F440267DF4A800E8EEA1 /* WelcomeViewController.swift in Sources */,
 				5C86F43C267DF4A800E8EEA1 /* AppDelegate.swift in Sources */,
 				5C86F43E267DF4A800E8EEA1 /* SceneDelegate.swift in Sources */,
 			);

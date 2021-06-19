@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Welcome View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="WelcomeViewController" customModule="Realm_Shop" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_pencil" translatesAutoresizingMaskIntoConstraints="NO" id="D52-jP-RKY">
+                                <rect key="frame" x="87" y="323" width="240" height="130"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="zgj-3R-3tJ"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Icr-8y-xso">
+                                <rect key="frame" x="142" y="583" width="130" height="130"/>
+                                <color key="backgroundColor" red="0.99942404029999998" green="1" blue="0.0" alpha="0.77429835843724126" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="UkX-0s-HMQ"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="XQJ-EQ-avb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HoeflerText-Regular" family="Hoefler Text" pointSize="26"/>
+                                <state key="normal" title="Get started">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="getStartedButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bu2-uo-NCT"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N O T E S" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="2h5-87-SGD">
+                                <rect key="frame" x="132" y="149" width="150" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="WwX-eW-mcK"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="wqX-eB-oi5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HoeflerText-Regular" family="Hoefler Text" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" red="0.26788952885841838" green="0.56284224989999998" blue="0.30758442842813566" alpha="0.83549903718051532" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="D52-jP-RKY" secondAttribute="trailing" constant="87" id="5ck-Bw-3ky"/>
+                            <constraint firstItem="D52-jP-RKY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="7Yw-Yq-UE4"/>
+                            <constraint firstItem="Icr-8y-xso" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="J4v-cs-sQf"/>
+                            <constraint firstItem="2h5-87-SGD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UJT-Mc-Foe"/>
+                            <constraint firstItem="D52-jP-RKY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="q1T-TV-tc3"/>
+                            <constraint firstItem="Icr-8y-xso" firstAttribute="top" secondItem="D52-jP-RKY" secondAttribute="bottom" constant="130" id="rBr-mG-pW9"/>
+                            <constraint firstItem="D52-jP-RKY" firstAttribute="top" secondItem="2h5-87-SGD" secondAttribute="bottom" constant="104" id="tsY-NX-iRP"/>
+                            <constraint firstItem="D52-jP-RKY" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-60" id="uEE-Hd-6IP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="getStartedButton" destination="Icr-8y-xso" id="4eN-XE-5i6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="111.59420289855073" y="73.660714285714278"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ic_pencil" width="500" height="499"/>
+    </resources>
+</document>
