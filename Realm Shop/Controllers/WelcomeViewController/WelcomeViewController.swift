@@ -13,12 +13,18 @@ class WelcomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getStartedButton.layer.cornerRadius = 65
+//        navigationController?.navigationBar.isHidden = true
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
     }
 
     @IBAction private func getStartedButtonPressed(_ sender: UIButton) {
         let viewController = CategoryViewController.instantiate()
         viewController.modalTransitionStyle = .coverVertical
         viewController.modalPresentationStyle = .fullScreen
-        present(viewController, animated: true, completion: nil)
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }
