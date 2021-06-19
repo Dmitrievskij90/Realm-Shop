@@ -18,9 +18,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Qml-qC-giK">
-                                <rect key="frame" x="0.0" y="144" width="414" height="752"/>
+                                <rect key="frame" x="0.0" y="74" width="414" height="822"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wBJ-bT-Jh7">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wBJ-bT-Jh7">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -43,7 +43,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Qml-qC-giK" firstAttribute="trailing" secondItem="7cT-Ld-PY5" secondAttribute="trailing" id="90L-xl-Fnj"/>
-                            <constraint firstItem="Qml-qC-giK" firstAttribute="top" secondItem="7cT-Ld-PY5" secondAttribute="top" constant="100" id="JMa-nY-Mgx"/>
+                            <constraint firstItem="Qml-qC-giK" firstAttribute="top" secondItem="7cT-Ld-PY5" secondAttribute="top" constant="30" id="JMa-nY-Mgx"/>
                             <constraint firstAttribute="bottom" secondItem="Qml-qC-giK" secondAttribute="bottom" id="OS2-Uy-QzH"/>
                             <constraint firstItem="Qml-qC-giK" firstAttribute="leading" secondItem="7cT-Ld-PY5" secondAttribute="leading" id="qDk-Tv-0ht"/>
                         </constraints>
