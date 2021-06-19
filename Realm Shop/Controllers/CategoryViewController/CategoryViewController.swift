@@ -13,8 +13,11 @@ class CategoryViewController: UIViewController {
     private let topInset: CGFloat = 0
     private let realm = try! Realm()
     private var categories: Results<Category>?
+
     @IBOutlet weak var categoryCollectionView: UICollectionView!
 
+    // MARK: - lifecycle methods
+    // MARK: -
     override func viewDidLoad() {
         super.viewDidLoad()
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButonPressed))
@@ -24,6 +27,8 @@ class CategoryViewController: UIViewController {
         categoryCollectionView.delegate = self
         categoryCollectionView.dataSource = self
         categoryCollectionView.register(CategoryCollectionViewCell.nib(), forCellWithReuseIdentifier: CategoryCollectionViewCell.identifier)
+
+        loadCategories()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -31,13 +36,56 @@ class CategoryViewController: UIViewController {
         navigationController?.navigationBar.isHidden = false
     }
 
+    // MARK: - action methods
+    // MARK: -
     @objc func addButonPressed() {
+        var textField = UITextField()
+
+        let alert = UIAlertController(title: "Add New Category", message: "", preferredStyle: .alert)
+
+        let action = UIAlertAction(title: "Add Category", style: .default) { _ in
+            if let title = textField.text {
+            let newCategory = Category()
+            newCategory.name = title
+            self.save(category: newCategory)
+            }
+        }
+        alert.addTextField { alertTextField in
+            alertTextField.placeholder = "Create new category"
+            textField = alertTextField
+        }
+
+        alert.addAction(action)
+
+        present(alert, animated: true, completion: nil)
+    }
+
+    // MARK: - Data Manipulation methods
+    // MARK: -
+   private func save(category: Category) {
+        do {
+            try realm.write {
+                realm.add(category)
+            }
+        } catch {
+    print("Error savin context\(error)")
+        }
+
+        self.categoryCollectionView.reloadData()
+    }
+
+   private func loadCategories() {
+        categories = realm.objects(Category.self)
+
+        categoryCollectionView.reloadData()
     }
 }
 
+// MARK: - UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  methods
+// MARK: -
 extension CategoryViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return categories?.count ?? 1
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -45,6 +93,9 @@ extension CategoryViewController: UICollectionViewDelegate, UICollectionViewData
             return UICollectionViewCell()
         }
         cell.layer.cornerRadius = 10
+        if let category = categories?[indexPath.row] {
+            cell.categoryLabel.text = category.name
+        }
         return cell
     }
 
