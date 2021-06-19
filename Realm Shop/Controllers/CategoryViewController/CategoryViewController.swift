@@ -5,11 +5,14 @@
 //  Created by Konstantin Dmitrievskiy on 19.06.2021.
 //
 
+import RealmSwift
 import UIKit
 
 class CategoryViewController: UIViewController {
     private let leftInset: CGFloat = 5
     private let topInset: CGFloat = 0
+    private let realm = try! Realm()
+    private var categories: Results<Category>?
     @IBOutlet weak var categoryCollectionView: UICollectionView!
 
     override func viewDidLoad() {
