@@ -62,19 +62,19 @@ class CategoryViewController: UIViewController {
 
     // MARK: - Data Manipulation methods
     // MARK: -
-   private func save(category: Category) {
+    private func save(category: Category) {
         do {
             try realm.write {
                 realm.add(category)
             }
         } catch {
-    print("Error savin context\(error)")
+            print("Error savin context\(error)")
         }
 
         self.categoryCollectionView.reloadData()
     }
 
-   private func loadCategories() {
+    private func loadCategories() {
         categories = realm.objects(Category.self)
 
         categoryCollectionView.reloadData()
@@ -108,5 +108,9 @@ extension CategoryViewController: UICollectionViewDelegate, UICollectionViewData
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let viewController = ItemViewController.instantiate()
+        viewController.modalTransitionStyle = .coverVertical
+        viewController.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }
