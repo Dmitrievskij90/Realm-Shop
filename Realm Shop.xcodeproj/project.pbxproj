@@ -16,6 +16,8 @@
 		5C86F460267E0CC800E8EEA1 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C86F45F267E0CC800E8EEA1 /* CategoryViewController.swift */; };
 		5C86F464267E0CDB00E8EEA1 /* CategoryViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C86F463267E0CDB00E8EEA1 /* CategoryViewController.storyboard */; };
 		5C86F468267E0D8E00E8EEA1 /* UIViewController+StoryBoardinit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C86F467267E0D8E00E8EEA1 /* UIViewController+StoryBoardinit.swift */; };
+		5C86F46F267E48AA00E8EEA1 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C86F46D267E48AA00E8EEA1 /* CategoryCollectionViewCell.swift */; };
+		5C86F470267E48AA00E8EEA1 /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C86F46E267E48AA00E8EEA1 /* CategoryCollectionViewCell.xib */; };
 		ADD5C5A58D855BF51DAC51CF /* Pods_Realm_Shop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C486ED16DBA7A13DF10741D7 /* Pods_Realm_Shop.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +33,8 @@
 		5C86F45F267E0CC800E8EEA1 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		5C86F463267E0CDB00E8EEA1 /* CategoryViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CategoryViewController.storyboard; sourceTree = "<group>"; };
 		5C86F467267E0D8E00E8EEA1 /* UIViewController+StoryBoardinit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+StoryBoardinit.swift"; sourceTree = "<group>"; };
+		5C86F46D267E48AA00E8EEA1 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		5C86F46E267E48AA00E8EEA1 /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		C486ED16DBA7A13DF10741D7 /* Pods_Realm_Shop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Realm_Shop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4480455836B63A1071919CF /* Pods-Realm Shop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Realm Shop.debug.xcconfig"; path = "Target Support Files/Pods-Realm Shop/Pods-Realm Shop.debug.xcconfig"; sourceTree = "<group>"; };
 		F9959C738EEF2861D84F6C5A /* Pods-Realm Shop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Realm Shop.release.xcconfig"; path = "Target Support Files/Pods-Realm Shop/Pods-Realm Shop.release.xcconfig"; sourceTree = "<group>"; };
@@ -75,6 +79,7 @@
 				5C86F446267DF4A900E8EEA1 /* LaunchScreen.storyboard */,
 				5C86F444267DF4A900E8EEA1 /* Assets.xcassets */,
 				5C86F449267DF4A900E8EEA1 /* Info.plist */,
+				5C86F46B267E487000E8EEA1 /* VIew */,
 				5C86F45A267E087600E8EEA1 /* Controllers */,
 			);
 			path = "Realm Shop";
@@ -113,6 +118,23 @@
 				5C86F467267E0D8E00E8EEA1 /* UIViewController+StoryBoardinit.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5C86F46B267E487000E8EEA1 /* VIew */ = {
+			isa = PBXGroup;
+			children = (
+				5C86F46C267E488700E8EEA1 /* CategoryCollectionCell */,
+			);
+			path = VIew;
+			sourceTree = "<group>";
+		};
+		5C86F46C267E488700E8EEA1 /* CategoryCollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				5C86F46D267E48AA00E8EEA1 /* CategoryCollectionViewCell.swift */,
+				5C86F46E267E48AA00E8EEA1 /* CategoryCollectionViewCell.xib */,
+			);
+			path = CategoryCollectionCell;
 			sourceTree = "<group>";
 		};
 		6AE58991EB0E029315320505 /* Pods */ = {
@@ -193,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C86F448267DF4A900E8EEA1 /* LaunchScreen.storyboard in Resources */,
+				5C86F470267E48AA00E8EEA1 /* CategoryCollectionViewCell.xib in Resources */,
 				5C86F445267DF4A900E8EEA1 /* Assets.xcassets in Resources */,
 				5C86F443267DF4A800E8EEA1 /* Main.storyboard in Resources */,
 				5C86F464267E0CDB00E8EEA1 /* CategoryViewController.storyboard in Resources */,
@@ -270,6 +293,7 @@
 				5C86F460267E0CC800E8EEA1 /* CategoryViewController.swift in Sources */,
 				5C86F440267DF4A800E8EEA1 /* WelcomeViewController.swift in Sources */,
 				5C86F43C267DF4A800E8EEA1 /* AppDelegate.swift in Sources */,
+				5C86F46F267E48AA00E8EEA1 /* CategoryCollectionViewCell.swift in Sources */,
 				5C86F43E267DF4A800E8EEA1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
