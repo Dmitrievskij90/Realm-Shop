@@ -9,15 +9,19 @@ import RealmSwift
 import UIKit
 
 class ItemViewController: UIViewController {
-    var todoItems: Results<Item>?
-
-    let realm = try! Realm()
-
+   private var todoItems: Results<Item>?
+   private let realm = try! Realm()
+    @IBOutlet weak var itemTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButonPressed))
         navigationItem.rightBarButtonItem = addButton
         navigationController?.navigationBar.tintColor = .label
+
+        itemTableView.delegate = self
+        itemTableView.dataSource = self
+        itemTableView.register(ItemTableViewCell.nib(), forCellReuseIdentifier: ItemTableViewCell.identifier)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -26,5 +30,20 @@ class ItemViewController: UIViewController {
 
     @objc func addButonPressed() {
     }
+}
+
+extension ItemViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ItemTableViewCell.identifier, for: indexPath) as? ItemTableViewCell else {
+            return UITableViewCell()
+        }
+
+        return cell
+    }
+
 
 }
