@@ -9,8 +9,13 @@ import RealmSwift
 import UIKit
 
 class ItemViewController: UIViewController {
-   private var todoItems: Results<Item>?
-   private let realm = try! Realm()
+    private var items: Results<Item>?
+    private let realm = try! Realm()
+    var selectedCategory: Category? {
+        didSet {
+            loadItems()
+        }
+    }
     @IBOutlet weak var itemTableView: UITableView!
     
     override func viewDidLoad() {
@@ -22,6 +27,8 @@ class ItemViewController: UIViewController {
         itemTableView.delegate = self
         itemTableView.dataSource = self
         itemTableView.register(ItemTableViewCell.nib(), forCellReuseIdentifier: ItemTableViewCell.identifier)
+        title = selectedCategory?.name
+    }
     }
 
     override func viewWillAppear(_ animated: Bool) {
