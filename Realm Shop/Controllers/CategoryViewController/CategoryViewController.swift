@@ -13,7 +13,6 @@ class CategoryViewController: UIViewController {
     private let topInset: CGFloat = 0
     private let realm = try! Realm()
     private var categories: Results<Category>?
-
     @IBOutlet weak var categoryCollectionView: UICollectionView!
 
     // MARK: - lifecycle methods
@@ -57,7 +56,14 @@ class CategoryViewController: UIViewController {
 
         alert.addAction(action)
 
-        present(alert, animated: true, completion: nil)
+        present(alert, animated: true) {
+            alert.view.superview?.isUserInteractionEnabled = true
+            alert.view.superview?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.alertControllerBackgroundTapped)))
+        }
+    }
+
+    @objc func alertControllerBackgroundTapped() {
+        self.dismiss(animated: true, completion: nil)
     }
 
     // MARK: - Data Manipulation methods
@@ -109,6 +115,7 @@ extension CategoryViewController: UICollectionViewDelegate, UICollectionViewData
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let viewController = ItemViewController.instantiate()
+        viewController.selectedCategory = categories?[indexPath.item]
         viewController.modalTransitionStyle = .coverVertical
         viewController.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(viewController, animated: true)
