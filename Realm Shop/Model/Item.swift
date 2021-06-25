@@ -10,5 +10,6 @@ import RealmSwift
 
 class Item: Object {
     @objc dynamic var title: String = ""
+    @objc dynamic var price: String = ""
     var parentCategory = LinkingObjects(fromType: Category.self, property: "items")
 }
