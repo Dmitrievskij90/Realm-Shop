@@ -8,8 +8,9 @@
 import UIKit
 
 class ItemTableViewCell: UITableViewCell {
-
     static let identifier = "ItemTableViewCell"
+    @IBOutlet weak var itemLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
 
     static func nib() -> UINib {
         return UINib(nibName: "ItemTableViewCell", bundle: nil)
@@ -22,7 +23,5 @@ class ItemTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
     }
-    
 }
