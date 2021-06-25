@@ -35,7 +35,8 @@ class ItemViewController: UIViewController {
         super.viewWillAppear(animated)
     }
 
-    @objc func addButonPressed() {
+    private func loadItems() {
+        items = selectedCategory?.items.sorted(byKeyPath: "title", ascending: true)
     }
 }
 
