@@ -29,10 +29,50 @@ class ItemViewController: UIViewController {
         itemTableView.register(ItemTableViewCell.nib(), forCellReuseIdentifier: ItemTableViewCell.identifier)
         title = selectedCategory?.name
     }
+
+    @objc func addButonPressed() {
+        var itemTextField = UITextField()
+        var priceTextField = UITextField()
+        let alert = UIAlertController(title: "Add New Item", message: "", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Add Item", style: .default) { _ in
+            guard let title = itemTextField.text else {
+                fatalError("Empty title")
+            }
+
+            guard let price = priceTextField.text else {
+                fatalError("Empty price")
+            }
+            if let currentCategory = self.selectedCategory {
+                do {
+                    try self.realm.write {
+                        let newItem = Item()
+                        newItem.title = title
+                        newItem.price = price
+                        currentCategory.items.append(newItem)
+                    }
+                } catch {
+                    print("Error saving new items")
+                }
+            }
+            self.itemTableView.reloadData()
+        }
+        alert.addTextField { alertTextField in
+            alertTextField.placeholder = "Create new item"
+            itemTextField = alertTextField
+        }
+        alert.addTextField { alertTextField in
+            alertTextField.placeholder = "Add item price"
+            priceTextField = alertTextField
+        }
+        alert.addAction(action)
+        present(alert, animated: true) {
+            alert.view.superview?.isUserInteractionEnabled = true
+            alert.view.superview?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.alertControllerBackgroundTapped)))
+        }
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    @objc func alertControllerBackgroundTapped() {
+        self.dismiss(animated: true, completion: nil)
     }
 
     private func loadItems() {
