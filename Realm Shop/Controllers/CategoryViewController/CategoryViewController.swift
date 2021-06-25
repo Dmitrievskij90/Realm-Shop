@@ -46,6 +46,7 @@ class CategoryViewController: UIViewController {
             if let title = textField.text {
             let newCategory = Category()
             newCategory.name = title
+            newCategory.colour = newCategory.categoryBackground.randomElement() ?? 0x94D0CC
             self.save(category: newCategory)
             }
         }
@@ -101,6 +102,7 @@ extension CategoryViewController: UICollectionViewDelegate, UICollectionViewData
         cell.layer.cornerRadius = 10
         if let category = categories?[indexPath.row] {
             cell.categoryLabel.text = category.name
+            cell.backgroundColor = .init(hex: category.colour)
         }
         return cell
     }
