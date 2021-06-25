@@ -82,7 +82,7 @@ class ItemViewController: UIViewController {
 
 extension ItemViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return items?.count ?? 1
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -90,8 +90,31 @@ extension ItemViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
 
+        if let item = selectedCategory?.items[indexPath.row] {
+            cell.itemLabel?.text = item.title
+            cell.priceLabel.text = item.price
+        } else {
+            cell.itemLabel?.text = "No items"
+        }
         return cell
     }
 
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let item = selectedCategory?.items[indexPath.row] {
+            do {
+                try realm.write {
+                    realm.delete(item)
+                }
+            } catch {
+                print("Error Updating data \(error)")
+            }
+        }
+        tableView.reloadData()
+
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
