@@ -10,7 +10,15 @@ import UIKit
 
 class ItemViewController: UIViewController {
     private var items: Results<Item>?
-    private let realm = try! Realm()
+    private var realm: Realm? {
+        do {
+        let realm = try Realm()
+            return realm
+        } catch {
+            assert(true, "Can't find realm")
+            return nil
+        }
+    }
     var selectedCategory: Category? {
         didSet {
             loadItems()
