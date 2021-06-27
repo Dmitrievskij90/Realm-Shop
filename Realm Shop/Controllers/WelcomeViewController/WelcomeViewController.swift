@@ -9,11 +9,11 @@ import UIKit
 
 class WelcomeViewController: UIViewController {
     @IBOutlet weak var getStartedButton: UIButton!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        getStartedButton.layer.cornerRadius = 65
-//        navigationController?.navigationBar.isHidden = true
+        getStartedButton.layer.cornerRadius = 10
+        getStartedButton.backgroundColor = .init(hex: 0xF4D085)
     }
 
     override func viewWillAppear(_ animated: Bool) {
