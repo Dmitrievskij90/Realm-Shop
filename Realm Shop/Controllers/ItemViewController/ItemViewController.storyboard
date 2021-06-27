@@ -17,21 +17,69 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WQn-Xk-jQE">
-                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="752"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x1c-sA-hKl">
+                                <rect key="frame" x="0.0" y="796" width="414" height="66"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_cart" translatesAutoresizingMaskIntoConstraints="NO" id="OaK-e2-Pnk">
+                                        <rect key="frame" x="234" y="0.0" width="180" height="66"/>
+                                        <color key="tintColor" systemColor="labelColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="180" id="KeV-As-cea"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1rT-C7-Kep">
+                                        <rect key="frame" x="234" y="0.0" width="180" height="66"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="180" id="4MZ-Pw-eyW"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total price: 0$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Uu1-b2-HyO">
+                                        <rect key="frame" x="40" y="0.0" width="160" height="66"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="160" id="U7f-h4-grK"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="1rT-C7-Kep" secondAttribute="trailing" id="J3b-Qn-BWj"/>
+                                    <constraint firstItem="1rT-C7-Kep" firstAttribute="top" secondItem="x1c-sA-hKl" secondAttribute="top" id="P2k-60-1JP"/>
+                                    <constraint firstItem="OaK-e2-Pnk" firstAttribute="top" secondItem="x1c-sA-hKl" secondAttribute="top" id="Vyn-O7-rBs"/>
+                                    <constraint firstAttribute="bottom" secondItem="OaK-e2-Pnk" secondAttribute="bottom" id="WbT-ph-U7W"/>
+                                    <constraint firstAttribute="bottom" secondItem="Uu1-b2-HyO" secondAttribute="bottom" id="bpd-ce-jHa"/>
+                                    <constraint firstAttribute="bottom" secondItem="1rT-C7-Kep" secondAttribute="bottom" id="eng-b5-cp4"/>
+                                    <constraint firstItem="Uu1-b2-HyO" firstAttribute="leading" secondItem="x1c-sA-hKl" secondAttribute="leading" constant="40" id="jf6-RV-zIe"/>
+                                    <constraint firstAttribute="trailing" secondItem="OaK-e2-Pnk" secondAttribute="trailing" id="oLz-eV-RAK"/>
+                                    <constraint firstItem="Uu1-b2-HyO" firstAttribute="top" secondItem="x1c-sA-hKl" secondAttribute="top" id="u8H-PU-SNZ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="u5L-sE-a4H"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="WQn-Xk-jQE" firstAttribute="trailing" secondItem="u5L-sE-a4H" secondAttribute="trailing" id="664-98-bex"/>
+                            <constraint firstItem="x1c-sA-hKl" firstAttribute="leading" secondItem="u5L-sE-a4H" secondAttribute="leading" id="8WL-80-xsV"/>
+                            <constraint firstItem="x1c-sA-hKl" firstAttribute="top" secondItem="WQn-Xk-jQE" secondAttribute="bottom" id="H0n-uu-Afl"/>
                             <constraint firstItem="WQn-Xk-jQE" firstAttribute="top" secondItem="u5L-sE-a4H" secondAttribute="top" id="MUn-Wd-iF0"/>
                             <constraint firstItem="WQn-Xk-jQE" firstAttribute="leading" secondItem="u5L-sE-a4H" secondAttribute="leading" id="NhE-Qn-lJL"/>
-                            <constraint firstAttribute="bottom" secondItem="WQn-Xk-jQE" secondAttribute="bottom" id="yRC-M9-oA8"/>
+                            <constraint firstItem="x1c-sA-hKl" firstAttribute="bottom" secondItem="u5L-sE-a4H" secondAttribute="bottom" id="jHL-o9-w5L"/>
+                            <constraint firstItem="x1c-sA-hKl" firstAttribute="trailing" secondItem="u5L-sE-a4H" secondAttribute="trailing" id="kKx-vQ-Xec"/>
+                            <constraint firstAttribute="bottom" secondItem="WQn-Xk-jQE" secondAttribute="bottom" constant="100" id="yRC-M9-oA8"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomView" destination="x1c-sA-hKl" id="RlO-RY-ubg"/>
+                        <outlet property="countLabel" destination="1rT-C7-Kep" id="RtZ-bR-8QK"/>
                         <outlet property="itemTableView" destination="WQn-Xk-jQE" id="n40-mL-Avc"/>
+                        <outlet property="priceLabel" destination="Uu1-b2-HyO" id="qqH-rE-lzt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sBS-94-RaZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -40,6 +88,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ic_cart" width="1000" height="1000"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
