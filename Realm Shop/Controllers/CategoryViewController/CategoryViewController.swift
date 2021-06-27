@@ -12,6 +12,15 @@ class CategoryViewController: UIViewController {
     private let leftInset: CGFloat = 5
     private let topInset: CGFloat = 0
     private let realm = try! Realm()
+    private var realm: Realm? {
+        do {
+        let realm = try Realm()
+            return realm
+        } catch {
+            assert(true, "Can't find realm")
+            return nil
+        }
+    }
     private var categories: Results<Category>?
     @IBOutlet weak var categoryCollectionView: UICollectionView!
 
