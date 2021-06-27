@@ -105,8 +105,41 @@ class ItemViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
 
+    // MARK: - Data Manipulation methods
+    // MARK: -
+    private func getDataFromSelectedCategory() {
+        if let items = selectedCategory?.items {
+            for i in items {
+                let item = Double(i.price)
+                priceArray.append(item ?? 0)
+            }
+        } else {
+            assert(true, "Can't find category")
+        }
+        purchaseAmount = priceArray.reduce(0, +)
+    }
+
     private func loadItems() {
         items = selectedCategory?.items.sorted(byKeyPath: "title", ascending: true)
+    }
+
+    private func saveItems(_ title: String, price: String) {
+        if let currentCategory = self.selectedCategory {
+            do {
+                try self.realm?.write {
+                    let newItem = Item()
+                    newItem.title = title
+                    newItem.price = price
+                    self.purchaseAmount += Double(price) ?? 0
+                    currentCategory.items.append(newItem)
+                    self.countLabel.text = String(currentCategory.items.count)
+                    self.priceLabel.text = String.roundedNumber(self.purchaseAmount)
+                }
+            } catch {
+                assert(true, "Error saving new items")
+            }
+        }
+        itemTableView.reloadData()
     }
 }
 
