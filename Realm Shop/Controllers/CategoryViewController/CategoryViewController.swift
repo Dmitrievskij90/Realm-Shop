@@ -11,7 +11,6 @@ import UIKit
 class CategoryViewController: UIViewController {
     private let leftInset: CGFloat = 5
     private let topInset: CGFloat = 0
-    private let realm = try! Realm()
     private var realm: Realm? {
         do {
         let realm = try Realm()
@@ -58,10 +57,13 @@ class CategoryViewController: UIViewController {
             newCategory.name = title
             newCategory.colour = newCategory.categoryBackground.randomElement() ?? 0x94D0CC
             self.save(category: newCategory)
+            } else {
+                assert(true, "Wrong data from textField")
             }
         }
         alert.addTextField { alertTextField in
             alertTextField.placeholder = "Create new category"
+            alertTextField.autocapitalizationType = .words
             textField = alertTextField
         }
 
@@ -81,18 +83,18 @@ class CategoryViewController: UIViewController {
     // MARK: -
     private func save(category: Category) {
         do {
-            try realm.write {
-                realm.add(category)
+            try realm?.write {
+                realm?.add(category)
             }
         } catch {
-            print("Error savin context\(error)")
+            assert(true, "Error savin category\(error)")
         }
 
         self.categoryCollectionView.reloadData()
     }
 
     private func loadCategories() {
-        categories = realm.objects(Category.self)
+        categories = realm?.objects(Category.self)
 
         categoryCollectionView.reloadData()
     }
