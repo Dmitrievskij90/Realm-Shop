@@ -26,6 +26,7 @@ class CategoryViewController: UIViewController {
         categoryCollectionView.delegate = self
         categoryCollectionView.dataSource = self
         categoryCollectionView.register(CategoryCollectionViewCell.nib(), forCellWithReuseIdentifier: CategoryCollectionViewCell.identifier)
+        title = "Categories"
 
         loadCategories()
     }
