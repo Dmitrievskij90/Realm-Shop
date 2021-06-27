@@ -30,16 +30,18 @@ class ItemViewController: UIViewController {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var itemTableView: UITableView!
     @IBOutlet weak var bottomView: UIView!
-    
+
+    // MARK: - lifecycle methods
+    // MARK: -
     override func viewDidLoad() {
         super.viewDidLoad()
-        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButonPressed))
-        navigationItem.rightBarButtonItem = addButton
-        navigationController?.navigationBar.tintColor = .label
+        getDataFromSelectedCategory()
+        setupUI()
 
         itemTableView.delegate = self
         itemTableView.dataSource = self
         itemTableView.register(ItemTableViewCell.nib(), forCellReuseIdentifier: ItemTableViewCell.identifier)
+    }
 
     // MARK: - UI method
     // MARK: -
@@ -60,39 +62,31 @@ class ItemViewController: UIViewController {
         countLabel.text = String(priceArray.count)
     }
 
+    // MARK: - action methods
+    // MARK: -
     @objc func addButonPressed() {
         var itemTextField = UITextField()
         var priceTextField = UITextField()
-        let alert = UIAlertController(title: "Add New Item", message: "", preferredStyle: .alert)
-        let action = UIAlertAction(title: "Add Item", style: .default) { _ in
-            guard let title = itemTextField.text else {
-                fatalError("Empty title")
-            }
 
-            guard let price = priceTextField.text else {
-                fatalError("Empty price")
-            }
-            if let currentCategory = self.selectedCategory {
-                do {
-                    try self.realm.write {
-                        let newItem = Item()
-                        newItem.title = title
-                        newItem.price = price
-                        currentCategory.items.append(newItem)
-                    }
-                } catch {
-                    print("Error saving new items")
-                }
-            }
-            self.itemTableView.reloadData()
-        }
+        let alert = UIAlertController(title: "Add New Item", message: "", preferredStyle: .alert)
+
         alert.addTextField { alertTextField in
             alertTextField.placeholder = "Create new item"
+            alertTextField.autocapitalizationType = .words
             itemTextField = alertTextField
         }
         alert.addTextField { alertTextField in
             alertTextField.placeholder = "Add item price"
+            alertTextField.keyboardType = .decimalPad
             priceTextField = alertTextField
+        }
+
+        let action = UIAlertAction(title: "Add Item", style: .default) { _ in
+            if let title = itemTextField.text, let price = priceTextField.text {
+                self.saveItems(title, price: price)
+            } else {
+                assert(true, "Wrong data from textField")
+            }
         }
         alert.addAction(action)
         present(alert, animated: true) {
