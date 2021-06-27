@@ -40,7 +40,24 @@ class ItemViewController: UIViewController {
         itemTableView.delegate = self
         itemTableView.dataSource = self
         itemTableView.register(ItemTableViewCell.nib(), forCellReuseIdentifier: ItemTableViewCell.identifier)
+
+    // MARK: - UI method
+    // MARK: -
+    private func setupUI() {
         title = selectedCategory?.name
+
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButonPressed))
+        navigationItem.rightBarButtonItem = addButton
+
+        navigationController?.navigationBar.tintColor = .label
+        navigationController?.navigationBar.prefersLargeTitles = true
+
+        bottomView.backgroundColor = .init(hex: selectedCategory?.colour ?? 0x94D0CC)
+        bottomView.layer.cornerRadius = 10
+        bottomView.clipsToBounds = true
+
+        priceLabel.text = String.roundedNumber(purchaseAmount)
+        countLabel.text = String(priceArray.count)
     }
 
     @objc func addButonPressed() {
