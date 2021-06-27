@@ -9,6 +9,8 @@ import RealmSwift
 import UIKit
 
 class ItemViewController: UIViewController {
+    private var priceArray = [Double]()
+    private var purchaseAmount: Double = 0
     private var items: Results<Item>?
     private var realm: Realm? {
         do {
@@ -24,7 +26,10 @@ class ItemViewController: UIViewController {
             loadItems()
         }
     }
+    @IBOutlet weak var countLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var itemTableView: UITableView!
+    @IBOutlet weak var bottomView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
