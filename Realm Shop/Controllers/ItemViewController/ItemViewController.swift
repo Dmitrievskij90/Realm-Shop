@@ -137,6 +137,8 @@ class ItemViewController: UIViewController {
     }
 }
 
+// MARK: - UITableViewDelegate, UITableViewDataSource methods
+// MARK: -
 extension ItemViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items?.count ?? 1
@@ -147,7 +149,10 @@ extension ItemViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
 
+        let number = "\(indexPath.row + 1)."
+
         if let item = selectedCategory?.items[indexPath.row] {
+            cell.textLabel?.text = number
             cell.itemLabel?.text = item.title
             cell.priceLabel.text = item.price
         } else {
@@ -163,15 +168,17 @@ extension ItemViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let item = selectedCategory?.items[indexPath.row] {
             do {
-                try realm.write {
-                    realm.delete(item)
+                try realm?.write {
+                    purchaseAmount -= Double(item.price) ?? 0
+                    realm?.delete(item)
+                    self.priceLabel.text = String.roundedNumber(purchaseAmount)
+                    self.countLabel.text = String(selectedCategory?.items.count ?? 0)
                 }
             } catch {
-                print("Error Updating data \(error)")
+                assert(true, "Error Updating data: \(error)")
             }
         }
         tableView.reloadData()
-
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
