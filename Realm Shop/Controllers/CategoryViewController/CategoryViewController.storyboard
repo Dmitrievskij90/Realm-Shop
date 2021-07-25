@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Qml-qC-giK">
-                                <rect key="frame" x="0.0" y="74" width="414" height="822"/>
+                                <rect key="frame" x="0.0" y="74" width="414" height="546"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wBJ-bT-Jh7">
                                     <size key="itemSize" width="128" height="128"/>
@@ -38,17 +38,30 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QCZ-Tb-3uQ">
+                                <rect key="frame" x="123" y="722" width="160" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="SK7-9O-3mR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7cT-Ld-PY5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Qml-qC-giK" firstAttribute="trailing" secondItem="7cT-Ld-PY5" secondAttribute="trailing" id="90L-xl-Fnj"/>
                             <constraint firstItem="Qml-qC-giK" firstAttribute="top" secondItem="7cT-Ld-PY5" secondAttribute="top" constant="30" id="JMa-nY-Mgx"/>
-                            <constraint firstAttribute="bottom" secondItem="Qml-qC-giK" secondAttribute="bottom" id="OS2-Uy-QzH"/>
+                            <constraint firstItem="QCZ-Tb-3uQ" firstAttribute="top" secondItem="Qml-qC-giK" secondAttribute="bottom" constant="102" id="ayb-a9-FRN"/>
+                            <constraint firstItem="7cT-Ld-PY5" firstAttribute="trailing" secondItem="QCZ-Tb-3uQ" secondAttribute="trailing" constant="131" id="hVv-Nl-gEt"/>
+                            <constraint firstItem="7cT-Ld-PY5" firstAttribute="bottom" secondItem="QCZ-Tb-3uQ" secondAttribute="bottom" constant="50" id="oxz-5j-m98"/>
                             <constraint firstItem="Qml-qC-giK" firstAttribute="leading" secondItem="7cT-Ld-PY5" secondAttribute="leading" id="qDk-Tv-0ht"/>
+                            <constraint firstItem="QCZ-Tb-3uQ" firstAttribute="leading" secondItem="7cT-Ld-PY5" secondAttribute="leading" constant="123" id="qtb-BJ-Efm"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="allPriceLabel" destination="QCZ-Tb-3uQ" id="rH0-yX-ara"/>
                         <outlet property="categoryCollectionView" destination="Qml-qC-giK" id="8VL-Ma-oiu"/>
                     </connections>
                 </viewController>

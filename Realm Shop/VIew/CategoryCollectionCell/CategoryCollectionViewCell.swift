@@ -17,5 +17,6 @@ class CategoryCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        categoryLabel.font = UIFont(name: "Marker felt", size: 20)
     }
 }
