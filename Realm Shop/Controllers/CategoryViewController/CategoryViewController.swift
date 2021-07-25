@@ -9,11 +9,13 @@ import RealmSwift
 import UIKit
 
 class CategoryViewController: UIViewController {
+    private var totalAmount = [Double]()
+    private var purchaseAmount: Double = 0
     private let leftInset: CGFloat = 5
     private let topInset: CGFloat = 0
     private var realm: Realm? {
         do {
-        let realm = try Realm()
+            let realm = try Realm()
             return realm
         } catch {
             assert(true, "Can't find realm")
@@ -22,7 +24,8 @@ class CategoryViewController: UIViewController {
     }
     private var categories: Results<Category>?
     @IBOutlet weak var categoryCollectionView: UICollectionView!
-
+    @IBOutlet weak var allPriceLabel: UILabel!
+    
     // MARK: - lifecycle methods
     // MARK: -
     override func viewDidLoad() {
@@ -36,12 +39,23 @@ class CategoryViewController: UIViewController {
         categoryCollectionView.register(CategoryCollectionViewCell.nib(), forCellWithReuseIdentifier: CategoryCollectionViewCell.identifier)
         title = "Categories"
 
+        allPriceLabel.text = String.roundedNumber(purchaseAmount)
+
+        //        print(Realm.Configuration.defaultConfiguration.fileURL)
+
         loadCategories()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = false
+        getPurchaseAmount()
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        totalAmount = [Double]()
+        purchaseAmount = 0.0
     }
 
     // MARK: - action methods
@@ -53,10 +67,10 @@ class CategoryViewController: UIViewController {
 
         let action = UIAlertAction(title: "Add Category", style: .default) { _ in
             if let title = textField.text {
-            let newCategory = Category()
-            newCategory.name = title
-            newCategory.colour = newCategory.categoryBackground.randomElement() ?? 0x94D0CC
-            self.save(category: newCategory)
+                let newCategory = Category()
+                newCategory.name = title
+                newCategory.colour = newCategory.categoryBackground.randomElement() ?? 0x94D0CC
+                self.save(category: newCategory)
             } else {
                 assert(true, "Wrong data from textField")
             }
@@ -98,6 +112,18 @@ class CategoryViewController: UIViewController {
 
         categoryCollectionView.reloadData()
     }
+
+    private func getPurchaseAmount() {
+        guard let drinks = realm?.objects(Item.self) else {
+            return
+        }
+        for i in drinks {
+            let drink = Double(i.price)
+            totalAmount.append(drink ?? 0)
+        }
+        purchaseAmount = totalAmount.reduce(0, +)
+        allPriceLabel.text = String.roundedNumber(purchaseAmount)
+    }
 }
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  methods
@@ -118,7 +144,7 @@ extension CategoryViewController: UICollectionViewDelegate, UICollectionViewData
         }
         return cell
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: (view.frame.width / 3) - 10, height: (view.frame.width / 3) - 10)
     }
