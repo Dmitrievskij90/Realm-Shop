@@ -56,12 +56,19 @@ class CategoryViewController: UIViewController {
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        totalAmount = [Double]()
-        purchaseAmount = 0.0
+        resetPurchaseAmount()
     }
 
     // MARK: - action methods
     // MARK: -
+    @IBAction private func doneButtonPressed(_ sender: UIButton) {
+        doneButton.isUserInteractionEnabled = true
+        doneButton.isHidden = true
+        longPressedEnabled = false
+
+        self.categoryCollectionView.reloadData()
+    }
+
     @objc func addButonPressed() {
         var textField = UITextField()
 
