@@ -152,6 +152,26 @@ class CategoryViewController: UIViewController {
         purchaseAmount = 0.0
     }
 
+    // MARK: - LongTapGestureRecognizer methods
+    // MARK: -
+    @objc func longTap(_ gesture: UIGestureRecognizer) {
+        switch gesture.state {
+        case .began:
+            guard let selectedIndexPath = categoryCollectionView.indexPathForItem(at: gesture.location(in: categoryCollectionView)) else {
+                return
+            }
+            categoryCollectionView.beginInteractiveMovementForItem(at: selectedIndexPath)
+        case .changed:
+            categoryCollectionView.updateInteractiveMovementTargetPosition(gesture.location(in: categoryCollectionView))
+        case .ended:
+            categoryCollectionView.endInteractiveMovement()
+            doneButton.isHidden = false
+            longPressedEnabled = true
+            self.categoryCollectionView.reloadData()
+        default:
+            categoryCollectionView.cancelInteractiveMovement()
+        }
+    }
 }
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  methods
