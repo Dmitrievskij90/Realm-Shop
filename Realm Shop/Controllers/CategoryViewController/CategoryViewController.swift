@@ -9,10 +9,12 @@ import RealmSwift
 import UIKit
 
 class CategoryViewController: UIViewController {
-    private var totalAmount = [Double]()
+    private var longPressedEnabled = false
+    private var purchaseArray = [Double]()
     private var purchaseAmount: Double = 0
     private let leftInset: CGFloat = 5
     private let topInset: CGFloat = 0
+    private var categories: Results<Category>?
     private var realm: Realm? {
         do {
             let realm = try Realm()
@@ -31,6 +33,9 @@ class CategoryViewController: UIViewController {
     // MARK: -
     override func viewDidLoad() {
         super.viewDidLoad()
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(longTap(_:)))
+        categoryCollectionView.addGestureRecognizer(longPressGesture)
+
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButonPressed))
         navigationItem.rightBarButtonItem = addButton
         navigationController?.navigationBar.tintColor = .label
@@ -38,12 +43,8 @@ class CategoryViewController: UIViewController {
         categoryCollectionView.delegate = self
         categoryCollectionView.dataSource = self
         categoryCollectionView.register(CategoryCollectionViewCell.nib(), forCellWithReuseIdentifier: CategoryCollectionViewCell.identifier)
-        title = "Categories"
 
-        allPriceLabel.text = String.roundedNumber(purchaseAmount)
-
-        //        print(Realm.Configuration.defaultConfiguration.fileURL)
-
+        setupUI()
         loadCategories()
     }
 
