@@ -172,6 +172,37 @@ class CategoryViewController: UIViewController {
             categoryCollectionView.cancelInteractiveMovement()
         }
     }
+
+    @objc func removeButtonPressed(_ sender: UIButton) {
+        let hitPoint = sender.convert(CGPoint.zero, to: self.categoryCollectionView)
+        guard let hitIndex = self.categoryCollectionView.indexPathForItem(at: hitPoint) else {
+            return
+        }
+
+        guard let categoryArray = categories else {
+            return
+        }
+
+        if let category = categories?[hitIndex.row] {
+            do {
+                try realm?.write {
+                    realm?.delete(category.items)
+                    realm?.delete(category)
+                }
+            } catch {
+                assert(true, "Error Updating data: \(error)")
+            }
+        }
+
+        if categoryArray.isEmpty {
+            doneButton.isHidden = true
+            longPressedEnabled = false
+        }
+
+        resetPurchaseAmount()
+        getPurchaseAmount()
+        self.categoryCollectionView.reloadData()
+    }
 }
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  methods
