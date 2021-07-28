@@ -10,6 +10,7 @@ import UIKit
 class CategoryCollectionViewCell: UICollectionViewCell {
     static let identifier = "CategoryCollectionViewCell"
     @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var removeButton: UIButton!
 
     static func nib() -> UINib {
         return UINib(nibName: "CategoryCollectionViewCell", bundle: nil)
