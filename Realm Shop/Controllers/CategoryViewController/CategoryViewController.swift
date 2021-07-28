@@ -146,6 +146,12 @@ class CategoryViewController: UIViewController {
         purchaseAmount = purchaseArray.reduce(0, +)
         allPriceLabel.text = String.roundedNumber(purchaseAmount)
     }
+
+    private func resetPurchaseAmount() {
+        purchaseArray = [Double]()
+        purchaseAmount = 0.0
+    }
+
 }
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  methods
