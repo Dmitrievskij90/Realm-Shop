@@ -22,9 +22,10 @@ class CategoryViewController: UIViewController {
             return nil
         }
     }
-    private var categories: Results<Category>?
+
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     @IBOutlet weak var allPriceLabel: UILabel!
+    @IBOutlet weak var doneButton: UIButton!
     
     // MARK: - lifecycle methods
     // MARK: -
