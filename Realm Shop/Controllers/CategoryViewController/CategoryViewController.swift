@@ -136,14 +136,14 @@ class CategoryViewController: UIViewController {
     }
 
     private func getPurchaseAmount() {
-        guard let drinks = realm?.objects(Item.self) else {
+        guard let items = realm?.objects(Item.self) else {
             return
         }
-        for i in drinks {
-            let drink = Double(i.price)
-            totalAmount.append(drink ?? 0)
+        for item in items {
+            let drink = Double(item.price)
+            purchaseArray.append(drink ?? 0)
         }
-        purchaseAmount = totalAmount.reduce(0, +)
+        purchaseAmount = purchaseArray.reduce(0, +)
         allPriceLabel.text = String.roundedNumber(purchaseAmount)
     }
 }
