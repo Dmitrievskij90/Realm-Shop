@@ -221,9 +221,18 @@ extension CategoryViewController: UICollectionViewDelegate, UICollectionViewData
             cell.categoryLabel.text = category.name
             cell.backgroundColor = .init(hex: category.colour)
         }
+
+        cell.removeButton.addTarget(self, action: #selector(removeButtonPressed(_:)), for: .touchUpInside)
+
+        if longPressedEnabled {
+            cell.startAnimate()
+        } else {
+            cell.stopAnimate()
+        }
+
         return cell
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: (view.frame.width / 3) - 10, height: (view.frame.width / 3) - 10)
     }
@@ -237,6 +246,8 @@ extension CategoryViewController: UICollectionViewDelegate, UICollectionViewData
         viewController.selectedCategory = categories?[indexPath.item]
         viewController.modalTransitionStyle = .coverVertical
         viewController.modalPresentationStyle = .fullScreen
+        longPressedEnabled = false
+        categoryCollectionView.reloadData()
         navigationController?.pushViewController(viewController, animated: true)
     }
 }
