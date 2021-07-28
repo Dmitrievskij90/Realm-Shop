@@ -79,7 +79,7 @@ class CategoryViewController: UIViewController {
                 let newCategory = Category()
                 newCategory.name = title
                 newCategory.colour = newCategory.categoryBackground.randomElement() ?? 0x94D0CC
-                self.save(category: newCategory)
+                self.saveCategory(category: newCategory)
             } else {
                 assert(true, "Wrong data from textField")
             }
@@ -97,14 +97,27 @@ class CategoryViewController: UIViewController {
             alert.view.superview?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.alertControllerBackgroundTapped)))
         }
     }
-
+    
     @objc func alertControllerBackgroundTapped() {
         self.dismiss(animated: true, completion: nil)
     }
 
+    // MARK: - UI methods
+    // MARK: -
+    private func setupUI() {
+        title = "Categories"
+
+        allPriceLabel.clipsToBounds = true
+        allPriceLabel.layer.cornerRadius = 10
+        allPriceLabel.backgroundColor = .init(hex: 0x94D0CC)
+        allPriceLabel.text = String.roundedNumber(purchaseAmount)
+
+        doneButton.isHidden = true
+    }
+
     // MARK: - Data Manipulation methods
     // MARK: -
-    private func save(category: Category) {
+    private func saveCategory(category: Category) {
         do {
             try realm?.write {
                 realm?.add(category)
