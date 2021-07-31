@@ -187,7 +187,7 @@ extension CategoryViewController: UICollectionViewDelegate, UICollectionViewData
 
 // MARK: - CategoryPresenterDelegate methods
 // MARK: -
-extension CategoryViewController: CategoryPresenterDelegate {
+extension CategoryViewController: CategoryPresenterProtocol {
     func getCategory(categori: Results<Category>?) {
         self.categories = categori
 

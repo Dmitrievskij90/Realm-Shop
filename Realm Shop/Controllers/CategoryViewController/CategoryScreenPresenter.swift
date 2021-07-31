@@ -8,11 +8,11 @@
 import RealmSwift
 import UIKit
 
-protocol CategoryPresenterDelegate: AnyObject {
+protocol CategoryPresenterProtocol: AnyObject {
     func getCategory(categori: Results<Category>?)
 }
 
-typealias PresenterDelegate = CategoryPresenterDelegate & UIViewController
+typealias CategoryPresenterDelegate = CategoryPresenterProtocol & UIViewController
 
 class CategoryScreenPresenter {
     private let realmManager: RealmManagerProtocol = RealmManager()
@@ -20,9 +20,9 @@ class CategoryScreenPresenter {
     private var purchaseAmount: Double = 0
     private var categories: Results<Category>?
 
-    weak var delegate: PresenterDelegate?
+    weak var delegate: CategoryPresenterDelegate?
 
-    func setViewDelegate(delegate: PresenterDelegate) {
+    func setViewDelegate(delegate: CategoryPresenterDelegate) {
         self.delegate = delegate
     }
 
