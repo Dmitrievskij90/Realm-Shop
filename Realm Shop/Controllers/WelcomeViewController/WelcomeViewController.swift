@@ -8,7 +8,7 @@
 import UIKit
 
 class WelcomeViewController: UIViewController {
-    lazy var presenter = WelcomeScreenPresenter(view: self)
+    private lazy var presenter = WelcomeScreenPresenter(view: self)
     
     @IBOutlet weak var getStartedButton: UIButton!
     
