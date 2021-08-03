@@ -34,8 +34,6 @@ class CategoryViewController: UIViewController {
         categoryCollectionView.dataSource = self
         categoryCollectionView.register(CategoryCollectionViewCell.nib(), forCellWithReuseIdentifier: CategoryCollectionViewCell.identifier)
 
-        //              print(Realm.Configuration.defaultConfiguration.fileURL)
-
         setupUI()
         presenter.loadCategories()
     }

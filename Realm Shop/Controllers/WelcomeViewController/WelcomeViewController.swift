@@ -9,7 +9,6 @@ import UIKit
 
 class WelcomeViewController: UIViewController {
     private lazy var presenter = WelcomeScreenPresenter(view: self)
-    
     @IBOutlet weak var getStartedButton: UIButton!
     
     override func viewDidLoad() {
