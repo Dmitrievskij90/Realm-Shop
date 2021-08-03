@@ -28,6 +28,7 @@
 		5C86F47B267E6E0000E8EEA1 /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C86F47A267E6E0000E8EEA1 /* ItemViewController.swift */; };
 		5C86F47F267E6E1100E8EEA1 /* ItemViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C86F47E267E6E1100E8EEA1 /* ItemViewController.storyboard */; };
 		5C86F482267E703500E8EEA1 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C86F481267E703500E8EEA1 /* Item.swift */; };
+		5CA4288F26B84D300061F7CD /* ItemScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA4288E26B84D300061F7CD /* ItemScreenPresenter.swift */; };
 		5CCA473426B31A12007C68B7 /* CategoryScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCA473326B31A12007C68B7 /* CategoryScreenPresenter.swift */; };
 		ADD5C5A58D855BF51DAC51CF /* Pods_Realm_Shop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C486ED16DBA7A13DF10741D7 /* Pods_Realm_Shop.framework */; };
 /* End PBXBuildFile section */
@@ -56,6 +57,7 @@
 		5C86F47A267E6E0000E8EEA1 /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
 		5C86F47E267E6E1100E8EEA1 /* ItemViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ItemViewController.storyboard; sourceTree = "<group>"; };
 		5C86F481267E703500E8EEA1 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		5CA4288E26B84D300061F7CD /* ItemScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemScreenPresenter.swift; sourceTree = "<group>"; };
 		5CCA473326B31A12007C68B7 /* CategoryScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryScreenPresenter.swift; sourceTree = "<group>"; };
 		C486ED16DBA7A13DF10741D7 /* Pods_Realm_Shop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Realm_Shop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4480455836B63A1071919CF /* Pods-Realm Shop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Realm Shop.debug.xcconfig"; path = "Target Support Files/Pods-Realm Shop/Pods-Realm Shop.debug.xcconfig"; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 		5C86F479267E6DD500E8EEA1 /* ItemViewController */ = {
 			isa = PBXGroup;
 			children = (
+				5CA4288E26B84D300061F7CD /* ItemScreenPresenter.swift */,
 				5C86F47A267E6E0000E8EEA1 /* ItemViewController.swift */,
 				5C86F47E267E6E1100E8EEA1 /* ItemViewController.storyboard */,
 			);
@@ -367,6 +370,7 @@
 				5C86F460267E0CC800E8EEA1 /* CategoryViewController.swift in Sources */,
 				5C86F440267DF4A800E8EEA1 /* WelcomeViewController.swift in Sources */,
 				5C86F43C267DF4A800E8EEA1 /* AppDelegate.swift in Sources */,
+				5CA4288F26B84D300061F7CD /* ItemScreenPresenter.swift in Sources */,
 				5C86F46F267E48AA00E8EEA1 /* CategoryCollectionViewCell.swift in Sources */,
 				5CCA473426B31A12007C68B7 /* CategoryScreenPresenter.swift in Sources */,
 				5C86F43E267DF4A800E8EEA1 /* SceneDelegate.swift in Sources */,

@@ -11,21 +11,17 @@ import UIKit
 protocol RealmManagerProtocol {
     func saveCategory(category: Category)
     func loadCategories() -> Results<Category>?
-    func saveItems(_ title: String, price: String)
+    func saveItems(_ title: String, price: String, category: Category?) -> Category
     func loadItemsForSelectedCategory()
     func loadAllItems() -> Results<Item>
     func deleteCategory(_ category: Category)
+    func deleteItems(category: Category?, indexPath: IndexPath, purchaseAmount: Double)
 }
 
 class RealmManager: RealmManagerProtocol {
     private var categories: Results<Category>?
     private var items: Results<Item>?
-    private var selectedCategory: Category? {
-        didSet {
-            loadItemsForSelectedCategory()
-        }
-    }
-
+    private var selectedCategory: Category?
     private var realm: Realm? {
         do {
             let realm = try Realm()
@@ -44,7 +40,7 @@ class RealmManager: RealmManagerProtocol {
                 realm?.add(category)
             }
         } catch {
-            assert(true, "Error savin category\(error)")
+            assert(true, "Error saving category\(error)")
         }
     }
 
@@ -66,12 +62,10 @@ class RealmManager: RealmManagerProtocol {
 
     // MARK: - Items methods
     // MARK: -
-    func loadItemsForSelectedCategory() {
-        items = selectedCategory?.items.sorted(byKeyPath: "title", ascending: true)
-    }
-
-    func saveItems(_ title: String, price: String) {
-        if let currentCategory = self.selectedCategory {
+    func saveItems(_ title: String, price: String, category: Category?) -> Category {
+        var result = Category()
+        if let currentCategory = category {
+            result = currentCategory
             do {
                 try self.realm?.write {
                     let newItem = Item()
@@ -83,6 +77,11 @@ class RealmManager: RealmManagerProtocol {
                 assert(true, "Error saving new items")
             }
         }
+        return result
+    }
+
+    func loadItemsForSelectedCategory() {
+        items = selectedCategory?.items.sorted(byKeyPath: "title", ascending: true)
     }
 
     func loadAllItems() -> Results<Item> {
@@ -90,5 +89,19 @@ class RealmManager: RealmManagerProtocol {
             fatalError("Items is empty")
         }
         return items
+    }
+
+    func deleteItems(category: Category?, indexPath: IndexPath, purchaseAmount: Double) {
+        var amount = purchaseAmount
+        if let item = category?.items[indexPath.row] {
+            do {
+                try realm?.write {
+                    amount -= Double(item.price) ?? 0
+                    realm?.delete(item)
+                }
+            } catch {
+                assert(true, "Error Updating data: \(error)")
+            }
+        }
     }
 }
