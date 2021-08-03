@@ -9,23 +9,10 @@ import RealmSwift
 import UIKit
 
 class ItemViewController: UIViewController {
-    private var priceArray = [Double]()
-    private var purchaseAmount: Double = 0
+    private lazy var presenter = ItemScreenPresenter(view: self)
     private var items: Results<Item>?
-    private var realm: Realm? {
-        do {
-        let realm = try Realm()
-            return realm
-        } catch {
-            assert(true, "Can't find realm")
-            return nil
-        }
-    }
-    var selectedCategory: Category? {
-        didSet {
-            loadItems()
-        }
-    }
+    var selectedCategory: Category?
+
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var itemTableView: UITableView!
@@ -35,8 +22,11 @@ class ItemViewController: UIViewController {
     // MARK: -
     override func viewDidLoad() {
         super.viewDidLoad()
-        getDataFromSelectedCategory()
+        presenter.setViewDelegate(delegate: self)
+        presenter.getDataFromSelectedCategory()
         setupUI()
+
+        items = presenter.loadItems()
 
         itemTableView.delegate = self
         itemTableView.dataSource = self
@@ -57,83 +47,12 @@ class ItemViewController: UIViewController {
         bottomView.backgroundColor = .init(hex: selectedCategory?.colour ?? 0x94D0CC)
         bottomView.layer.cornerRadius = 10
         bottomView.clipsToBounds = true
-
-        priceLabel.text = String.roundedNumber(purchaseAmount)
-        countLabel.text = String(priceArray.count)
     }
 
     // MARK: - action methods
     // MARK: -
     @objc func addButonPressed() {
-        var itemTextField = UITextField()
-        var priceTextField = UITextField()
-
-        let alert = UIAlertController(title: "Add New Item", message: "", preferredStyle: .alert)
-
-        alert.addTextField { alertTextField in
-            alertTextField.placeholder = "Create new item"
-            alertTextField.autocapitalizationType = .words
-            itemTextField = alertTextField
-        }
-        alert.addTextField { alertTextField in
-            alertTextField.placeholder = "Add item price"
-            alertTextField.keyboardType = .decimalPad
-            priceTextField = alertTextField
-        }
-
-        let action = UIAlertAction(title: "Add Item", style: .default) { _ in
-            if let title = itemTextField.text, let price = priceTextField.text {
-                self.saveItems(title, price: price)
-            } else {
-                assert(true, "Wrong data from textField")
-            }
-        }
-        alert.addAction(action)
-        present(alert, animated: true) {
-            alert.view.superview?.isUserInteractionEnabled = true
-            alert.view.superview?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.alertControllerBackgroundTapped)))
-        }
-    }
-
-    @objc func alertControllerBackgroundTapped() {
-        self.dismiss(animated: true, completion: nil)
-    }
-
-    // MARK: - Data Manipulation methods
-    // MARK: -
-    private func getDataFromSelectedCategory() {
-        if let items = selectedCategory?.items {
-            for i in items {
-                let item = Double(i.price)
-                priceArray.append(item ?? 0)
-            }
-        } else {
-            assert(true, "Can't find category")
-        }
-        purchaseAmount = priceArray.reduce(0, +)
-    }
-
-    private func loadItems() {
-        items = selectedCategory?.items.sorted(byKeyPath: "title", ascending: true)
-    }
-
-    private func saveItems(_ title: String, price: String) {
-        if let currentCategory = self.selectedCategory {
-            do {
-                try self.realm?.write {
-                    let newItem = Item()
-                    newItem.title = title
-                    newItem.price = price
-                    self.purchaseAmount += Double(price) ?? 0
-                    currentCategory.items.append(newItem)
-                    self.countLabel.text = String(currentCategory.items.count)
-                    self.priceLabel.text = String.roundedNumber(self.purchaseAmount)
-                }
-            } catch {
-                assert(true, "Error saving new items")
-            }
-        }
-        itemTableView.reloadData()
+        presenter.addButonPressed()
     }
 }
 
@@ -166,19 +85,7 @@ extension ItemViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let item = selectedCategory?.items[indexPath.row] {
-            do {
-                try realm?.write {
-                    purchaseAmount -= Double(item.price) ?? 0
-                    realm?.delete(item)
-                    self.priceLabel.text = String.roundedNumber(purchaseAmount)
-                    self.countLabel.text = String(selectedCategory?.items.count ?? 0)
-                }
-            } catch {
-                assert(true, "Error Updating data: \(error)")
-            }
-        }
-        tableView.reloadData()
+        presenter.deleteItems(indexPath: indexPath)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
