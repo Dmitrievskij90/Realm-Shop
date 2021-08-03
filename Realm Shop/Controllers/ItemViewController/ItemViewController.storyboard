@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WQn-Xk-jQE">
-                                <rect key="frame" x="0.0" y="44" width="414" height="752"/>
+                                <rect key="frame" x="0.0" y="69" width="414" height="727"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x1c-sA-hKl">
@@ -68,7 +68,7 @@
                             <constraint firstItem="WQn-Xk-jQE" firstAttribute="trailing" secondItem="u5L-sE-a4H" secondAttribute="trailing" id="664-98-bex"/>
                             <constraint firstItem="x1c-sA-hKl" firstAttribute="leading" secondItem="u5L-sE-a4H" secondAttribute="leading" id="8WL-80-xsV"/>
                             <constraint firstItem="x1c-sA-hKl" firstAttribute="top" secondItem="WQn-Xk-jQE" secondAttribute="bottom" id="H0n-uu-Afl"/>
-                            <constraint firstItem="WQn-Xk-jQE" firstAttribute="top" secondItem="u5L-sE-a4H" secondAttribute="top" id="MUn-Wd-iF0"/>
+                            <constraint firstItem="WQn-Xk-jQE" firstAttribute="top" secondItem="u5L-sE-a4H" secondAttribute="top" constant="25" id="MUn-Wd-iF0"/>
                             <constraint firstItem="WQn-Xk-jQE" firstAttribute="leading" secondItem="u5L-sE-a4H" secondAttribute="leading" id="NhE-Qn-lJL"/>
                             <constraint firstItem="x1c-sA-hKl" firstAttribute="bottom" secondItem="u5L-sE-a4H" secondAttribute="bottom" id="jHL-o9-w5L"/>
                             <constraint firstItem="x1c-sA-hKl" firstAttribute="trailing" secondItem="u5L-sE-a4H" secondAttribute="trailing" id="kKx-vQ-Xec"/>
