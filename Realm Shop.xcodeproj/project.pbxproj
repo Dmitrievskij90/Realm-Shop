@@ -3,27 +3,65 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C1232F0268877DE00765251 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1232EF268877DE00765251 /* String+Extension.swift */; };
+		5C1ED84426B1C47000599C18 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1ED84326B1C47000599C18 /* RealmManager.swift */; };
+		5C1ED84726B1C86F00599C18 /* WelcomeScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1ED84626B1C86F00599C18 /* WelcomeScreenPresenter.swift */; };
+		5C5F067D267F20C800C61FCD /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5F067B267F20C800C61FCD /* ItemTableViewCell.swift */; };
+		5C5F067E267F20C800C61FCD /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C5F067C267F20C800C61FCD /* ItemTableViewCell.xib */; };
+		5C72BB9E26862EEB00BB4C19 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C72BB9D26862EEB00BB4C19 /* UIColor+Extension.swift */; };
 		5C86F43C267DF4A800E8EEA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C86F43B267DF4A800E8EEA1 /* AppDelegate.swift */; };
 		5C86F43E267DF4A800E8EEA1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C86F43D267DF4A800E8EEA1 /* SceneDelegate.swift */; };
-		5C86F440267DF4A800E8EEA1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C86F43F267DF4A800E8EEA1 /* ViewController.swift */; };
+		5C86F440267DF4A800E8EEA1 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C86F43F267DF4A800E8EEA1 /* WelcomeViewController.swift */; };
 		5C86F443267DF4A800E8EEA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C86F441267DF4A800E8EEA1 /* Main.storyboard */; };
 		5C86F445267DF4A900E8EEA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C86F444267DF4A900E8EEA1 /* Assets.xcassets */; };
 		5C86F448267DF4A900E8EEA1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C86F446267DF4A900E8EEA1 /* LaunchScreen.storyboard */; };
+		5C86F460267E0CC800E8EEA1 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C86F45F267E0CC800E8EEA1 /* CategoryViewController.swift */; };
+		5C86F464267E0CDB00E8EEA1 /* CategoryViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C86F463267E0CDB00E8EEA1 /* CategoryViewController.storyboard */; };
+		5C86F468267E0D8E00E8EEA1 /* UIViewController+StoryBoardinit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C86F467267E0D8E00E8EEA1 /* UIViewController+StoryBoardinit.swift */; };
+		5C86F46F267E48AA00E8EEA1 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C86F46D267E48AA00E8EEA1 /* CategoryCollectionViewCell.swift */; };
+		5C86F470267E48AA00E8EEA1 /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C86F46E267E48AA00E8EEA1 /* CategoryCollectionViewCell.xib */; };
+		5C86F475267E5A7600E8EEA1 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C86F474267E5A7600E8EEA1 /* Category.swift */; };
+		5C86F47B267E6E0000E8EEA1 /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C86F47A267E6E0000E8EEA1 /* ItemViewController.swift */; };
+		5C86F47F267E6E1100E8EEA1 /* ItemViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C86F47E267E6E1100E8EEA1 /* ItemViewController.storyboard */; };
+		5C86F482267E703500E8EEA1 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C86F481267E703500E8EEA1 /* Item.swift */; };
+		5CA4288F26B84D300061F7CD /* ItemScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA4288E26B84D300061F7CD /* ItemScreenPresenter.swift */; };
+		5CCA473426B31A12007C68B7 /* CategoryScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCA473326B31A12007C68B7 /* CategoryScreenPresenter.swift */; };
+		ADD5C5A58D855BF51DAC51CF /* Pods_Realm_Shop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C486ED16DBA7A13DF10741D7 /* Pods_Realm_Shop.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C1232EF268877DE00765251 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		5C1ED84326B1C47000599C18 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		5C1ED84626B1C86F00599C18 /* WelcomeScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenPresenter.swift; sourceTree = "<group>"; };
+		5C5F067B267F20C800C61FCD /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
+		5C5F067C267F20C800C61FCD /* ItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
+		5C72BB9D26862EEB00BB4C19 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		5C86F438267DF4A800E8EEA1 /* Realm Shop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Realm Shop.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C86F43B267DF4A800E8EEA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C86F43D267DF4A800E8EEA1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5C86F43F267DF4A800E8EEA1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5C86F43F267DF4A800E8EEA1 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		5C86F442267DF4A800E8EEA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5C86F444267DF4A900E8EEA1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C86F447267DF4A900E8EEA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5C86F449267DF4A900E8EEA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C86F45F267E0CC800E8EEA1 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		5C86F463267E0CDB00E8EEA1 /* CategoryViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CategoryViewController.storyboard; sourceTree = "<group>"; };
+		5C86F467267E0D8E00E8EEA1 /* UIViewController+StoryBoardinit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+StoryBoardinit.swift"; sourceTree = "<group>"; };
+		5C86F46D267E48AA00E8EEA1 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		5C86F46E267E48AA00E8EEA1 /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		5C86F474267E5A7600E8EEA1 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		5C86F47A267E6E0000E8EEA1 /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
+		5C86F47E267E6E1100E8EEA1 /* ItemViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ItemViewController.storyboard; sourceTree = "<group>"; };
+		5C86F481267E703500E8EEA1 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		5CA4288E26B84D300061F7CD /* ItemScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemScreenPresenter.swift; sourceTree = "<group>"; };
+		5CCA473326B31A12007C68B7 /* CategoryScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryScreenPresenter.swift; sourceTree = "<group>"; };
+		C486ED16DBA7A13DF10741D7 /* Pods_Realm_Shop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Realm_Shop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4480455836B63A1071919CF /* Pods-Realm Shop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Realm Shop.debug.xcconfig"; path = "Target Support Files/Pods-Realm Shop/Pods-Realm Shop.debug.xcconfig"; sourceTree = "<group>"; };
+		F9959C738EEF2861D84F6C5A /* Pods-Realm Shop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Realm Shop.release.xcconfig"; path = "Target Support Files/Pods-Realm Shop/Pods-Realm Shop.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +69,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADD5C5A58D855BF51DAC51CF /* Pods_Realm_Shop.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C1ED84226B1C43200599C18 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				5C1ED84326B1C47000599C18 /* RealmManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		5C5F067A267F209E00C61FCD /* ItemTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				5C5F067B267F20C800C61FCD /* ItemTableViewCell.swift */,
+				5C5F067C267F20C800C61FCD /* ItemTableViewCell.xib */,
+			);
+			path = ItemTableViewCell;
+			sourceTree = "<group>";
+		};
 		5C86F42F267DF4A800E8EEA1 = {
 			isa = PBXGroup;
 			children = (
 				5C86F43A267DF4A800E8EEA1 /* Realm Shop */,
+				5C86F466267E0D4A00E8EEA1 /* Extensions */,
 				5C86F439267DF4A800E8EEA1 /* Products */,
+				6AE58991EB0E029315320505 /* Pods */,
+				F343193A5223C726E0882808 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,13 +117,109 @@
 			children = (
 				5C86F43B267DF4A800E8EEA1 /* AppDelegate.swift */,
 				5C86F43D267DF4A800E8EEA1 /* SceneDelegate.swift */,
-				5C86F43F267DF4A800E8EEA1 /* ViewController.swift */,
-				5C86F441267DF4A800E8EEA1 /* Main.storyboard */,
-				5C86F444267DF4A900E8EEA1 /* Assets.xcassets */,
 				5C86F446267DF4A900E8EEA1 /* LaunchScreen.storyboard */,
+				5C86F444267DF4A900E8EEA1 /* Assets.xcassets */,
 				5C86F449267DF4A900E8EEA1 /* Info.plist */,
+				5C1ED84226B1C43200599C18 /* Managers */,
+				5C86F473267E577E00E8EEA1 /* Model */,
+				5C86F46B267E487000E8EEA1 /* VIew */,
+				5C86F45A267E087600E8EEA1 /* Controllers */,
 			);
 			path = "Realm Shop";
+			sourceTree = "<group>";
+		};
+		5C86F45A267E087600E8EEA1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5C86F45B267E08A500E8EEA1 /* WelcomeViewController */,
+				5C86F45E267E0CA700E8EEA1 /* CategoryViewController */,
+				5C86F479267E6DD500E8EEA1 /* ItemViewController */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		5C86F45B267E08A500E8EEA1 /* WelcomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5C1ED84626B1C86F00599C18 /* WelcomeScreenPresenter.swift */,
+				5C86F43F267DF4A800E8EEA1 /* WelcomeViewController.swift */,
+				5C86F441267DF4A800E8EEA1 /* Main.storyboard */,
+			);
+			path = WelcomeViewController;
+			sourceTree = "<group>";
+		};
+		5C86F45E267E0CA700E8EEA1 /* CategoryViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5CCA473326B31A12007C68B7 /* CategoryScreenPresenter.swift */,
+				5C86F45F267E0CC800E8EEA1 /* CategoryViewController.swift */,
+				5C86F463267E0CDB00E8EEA1 /* CategoryViewController.storyboard */,
+			);
+			path = CategoryViewController;
+			sourceTree = "<group>";
+		};
+		5C86F466267E0D4A00E8EEA1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5C86F467267E0D8E00E8EEA1 /* UIViewController+StoryBoardinit.swift */,
+				5C72BB9D26862EEB00BB4C19 /* UIColor+Extension.swift */,
+				5C1232EF268877DE00765251 /* String+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5C86F46B267E487000E8EEA1 /* VIew */ = {
+			isa = PBXGroup;
+			children = (
+				5C86F46C267E488700E8EEA1 /* CategoryCollectionCell */,
+				5C5F067A267F209E00C61FCD /* ItemTableViewCell */,
+			);
+			path = VIew;
+			sourceTree = "<group>";
+		};
+		5C86F46C267E488700E8EEA1 /* CategoryCollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				5C86F46D267E48AA00E8EEA1 /* CategoryCollectionViewCell.swift */,
+				5C86F46E267E48AA00E8EEA1 /* CategoryCollectionViewCell.xib */,
+			);
+			path = CategoryCollectionCell;
+			sourceTree = "<group>";
+		};
+		5C86F473267E577E00E8EEA1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5C86F474267E5A7600E8EEA1 /* Category.swift */,
+				5C86F481267E703500E8EEA1 /* Item.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5C86F479267E6DD500E8EEA1 /* ItemViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5CA4288E26B84D300061F7CD /* ItemScreenPresenter.swift */,
+				5C86F47A267E6E0000E8EEA1 /* ItemViewController.swift */,
+				5C86F47E267E6E1100E8EEA1 /* ItemViewController.storyboard */,
+			);
+			path = ItemViewController;
+			sourceTree = "<group>";
+		};
+		6AE58991EB0E029315320505 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D4480455836B63A1071919CF /* Pods-Realm Shop.debug.xcconfig */,
+				F9959C738EEF2861D84F6C5A /* Pods-Realm Shop.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F343193A5223C726E0882808 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C486ED16DBA7A13DF10741D7 /* Pods_Realm_Shop.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,10 +229,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5C86F44C267DF4A900E8EEA1 /* Build configuration list for PBXNativeTarget "Realm Shop" */;
 			buildPhases = (
+				90D1D5FB726BDF621DCACDEF /* [CP] Check Pods Manifest.lock */,
 				5C86F434267DF4A800E8EEA1 /* Sources */,
 				5C86F435267DF4A800E8EEA1 /* Frameworks */,
 				5C86F436267DF4A800E8EEA1 /* Resources */,
 				5C86F450267DF4F100E8EEA1 /* SwiftLint */,
+				A3E8C2727993827AC566D784 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,8 +283,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C86F448267DF4A900E8EEA1 /* LaunchScreen.storyboard in Resources */,
+				5C86F470267E48AA00E8EEA1 /* CategoryCollectionViewCell.xib in Resources */,
 				5C86F445267DF4A900E8EEA1 /* Assets.xcassets in Resources */,
 				5C86F443267DF4A800E8EEA1 /* Main.storyboard in Resources */,
+				5C86F47F267E6E1100E8EEA1 /* ItemViewController.storyboard in Resources */,
+				5C5F067E267F20C800C61FCD /* ItemTableViewCell.xib in Resources */,
+				5C86F464267E0CDB00E8EEA1 /* CategoryViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +313,45 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
+		90D1D5FB726BDF621DCACDEF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Realm Shop-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A3E8C2727993827AC566D784 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Realm Shop/Pods-Realm Shop-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Realm Shop/Pods-Realm Shop-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Realm Shop/Pods-Realm Shop-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -159,9 +359,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C86F440267DF4A800E8EEA1 /* ViewController.swift in Sources */,
+				5C1ED84426B1C47000599C18 /* RealmManager.swift in Sources */,
+				5C1ED84726B1C86F00599C18 /* WelcomeScreenPresenter.swift in Sources */,
+				5C86F468267E0D8E00E8EEA1 /* UIViewController+StoryBoardinit.swift in Sources */,
+				5C86F482267E703500E8EEA1 /* Item.swift in Sources */,
+				5C5F067D267F20C800C61FCD /* ItemTableViewCell.swift in Sources */,
+				5C72BB9E26862EEB00BB4C19 /* UIColor+Extension.swift in Sources */,
+				5C1232F0268877DE00765251 /* String+Extension.swift in Sources */,
+				5C86F47B267E6E0000E8EEA1 /* ItemViewController.swift in Sources */,
+				5C86F460267E0CC800E8EEA1 /* CategoryViewController.swift in Sources */,
+				5C86F440267DF4A800E8EEA1 /* WelcomeViewController.swift in Sources */,
 				5C86F43C267DF4A800E8EEA1 /* AppDelegate.swift in Sources */,
+				5CA4288F26B84D300061F7CD /* ItemScreenPresenter.swift in Sources */,
+				5C86F46F267E48AA00E8EEA1 /* CategoryCollectionViewCell.swift in Sources */,
+				5CCA473426B31A12007C68B7 /* CategoryScreenPresenter.swift in Sources */,
 				5C86F43E267DF4A800E8EEA1 /* SceneDelegate.swift in Sources */,
+				5C86F475267E5A7600E8EEA1 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +518,7 @@
 		};
 		5C86F44D267DF4A900E8EEA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D4480455836B63A1071919CF /* Pods-Realm Shop.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -324,6 +538,7 @@
 		};
 		5C86F44E267DF4A900E8EEA1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9959C738EEF2861D84F6C5A /* Pods-Realm Shop.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
